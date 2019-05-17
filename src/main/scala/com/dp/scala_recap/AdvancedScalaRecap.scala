@@ -19,7 +19,7 @@ object AdvancedScalaRecap extends App {
 
   val function: (Int => Int) = partialFunction
 
-  val modifiedList = List(1,2,3).map({
+  val modifiedList = List(1, 2, 3).map({
     case 1 => 42
     case _ => 0
   })
@@ -37,7 +37,13 @@ object AdvancedScalaRecap extends App {
 
   pfChain(5) // 999 per partialFunction
   pfChain(60) // 9000
-  pfChain(457) // throw a MatchError
+  try {
+    pfChain(457)
+  } catch {
+    case _: MatchError => {
+      println("Match Error")
+    } // throw a MatchError
+  }
 
   // type aliases
   type RecievedFunction = PartialFunction[Any, Unit]
@@ -46,5 +52,18 @@ object AdvancedScalaRecap extends App {
     case 1 => println("hello")
     case _ => println("confused....")
   }
+
+  // implicits
+
+  implicit val timeout = 3000
+
+  def setTimeout(f: () => Unit)(implicit timeout: Int) = f()
+
+  setTimeout(() => println("timeout at "))
+
+  case class Person(name: String) {
+    def greet = s"Hi, my name is $name"
+  }
+
 
 }
