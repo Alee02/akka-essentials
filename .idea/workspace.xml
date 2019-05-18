@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a68ffcfa-1eb5-4fa4-b234-cd15d1860bf7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/scala/com/dp/scala_recap/MultiThreadingRecap.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/com/dp/scala_recap/ThreadModelLimitation.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/akka-quickstart-scala.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/akka-quickstart-scala.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.12/output" beforeDir="false" afterPath="$PROJECT_DIR$/project/target/streams/$global/update/$global/streams/update_cache_2.12/output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/com/dp/scala_recap/RecursionTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/dp/scala_recap/RecursionTest.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/project/project/target/" />
@@ -24,11 +20,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/dp/scala_recap/ThreadModelLimitation.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+            <state relative-caret-position="519">
+              <caret line="82" column="5" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com/dp/scala_recap/RecursionTest.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
@@ -46,6 +51,7 @@
         <option value="$PROJECT_DIR$/src/main/scala/com/dp/scala_recap/AdvancedScalaRecap.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/dp/scala_recap/MultiThreadingRecap.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/dp/scala_recap/ThreadModelLimitation.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/com/dp/scala_recap/RecursionTest.scala" />
       </list>
     </option>
   </component>
@@ -155,7 +161,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ThreadModelLimitation">
+  <component name="RunManager" selected="Application.RecursionTest">
     <configuration name="AdvancedScalaRecap" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.dp.scala_recap.AdvancedScalaRecap" />
       <module name="akka-quickstart-scala" />
@@ -182,6 +188,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RecursionTest" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.dp.scala_recap.RecursionTest" />
+      <module name="akka-quickstart-scala" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.dp.scala_recap.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ThreadModelLimitation" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.dp.scala_recap.ThreadModelLimitation" />
       <module name="akka-quickstart-scala" />
@@ -197,6 +216,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RecursionTest" />
         <item itemvalue="Application.ThreadModelLimitation" />
         <item itemvalue="Application.MultiThreadingRecap" />
         <item itemvalue="Application.AdvancedScalaRecap" />
@@ -269,7 +289,7 @@
       <window_info id="Learn" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3298731" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32884398" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -346,8 +366,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/dp/scala_recap/ThreadModelLimitation.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+        <state relative-caret-position="519">
+          <caret line="82" column="5" lean-forward="true" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/dp/scala_recap/RecursionTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
