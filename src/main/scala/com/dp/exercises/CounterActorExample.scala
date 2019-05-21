@@ -1,6 +1,7 @@
 package com.dp.exercises
 
 import akka.actor.{Actor, ActorSystem, Props}
+import com.dp.exercises.CounterActorExample.CounterActor.{Decrement, Increment, Print}
 
 object CounterActorExample extends App {
 
@@ -14,9 +15,13 @@ object CounterActorExample extends App {
       case Print => println(counter)
     }
   }
-  object Increment
-  object Decrement
-  object Print
+
+  object CounterActor {
+    object Increment
+    object Decrement
+    object Print
+  }
+
 
   /*
   TESTING
