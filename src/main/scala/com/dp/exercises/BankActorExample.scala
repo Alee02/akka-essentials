@@ -1,6 +1,8 @@
 package com.dp.exercises
 
-import akka.actor.Actor
+import akka.actor.{Actor, ActorRef, ActorSystem, Props}
+import com.dp.exercises.BankActorExample.BankAccount.{Deposit, Statement, Withdraw}
+import com.dp.exercises.BankActorExample.Person.LiveTheLife
 
 object BankActorExample extends App {
 
@@ -42,4 +44,27 @@ object BankActorExample extends App {
 
   // Bank account requires another actor to interact with as it sends messages back.
   // These would go to the dead letters actor (null actor) otherwise
+
+  object Person {
+    case class LiveTheLife(account: ActorRef)
+  }
+
+  class Person extends Actor {
+    import Person._
+    override def receive: Receive = {
+      case LiveTheLife(account) => {
+        account ! Deposit(10000)
+        account ! Withdraw(9000)
+        account ! Withdraw(500)
+        account ! Statement
+      }
+      case message => println(message.toString)
+    }
+  }
+
+  val system = ActorSystem("bankAccountSystem")
+  val account = system.actorOf(Props[BankAccount], "bankAccount")
+  val person = system.actorOf(Props[Person], "billionaire")
+
+  person ! LiveTheLife(account)
 }
