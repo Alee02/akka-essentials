@@ -52,7 +52,7 @@ object BankActorExample extends App {
   class Person extends Actor {
     import Person._
     override def receive: Receive = {
-      case LiveTheLife(account) => {
+      case LiveTheLife(account: ActorRef) => {
         account ! Deposit(10000)
         account ! Withdraw(9000)
         account ! Withdraw(500)
