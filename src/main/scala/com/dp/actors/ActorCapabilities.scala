@@ -5,6 +5,8 @@ import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 object ActorCapabilities extends App {
 
    class SimpleActor extends Actor {
+     // message handler for a the actor
+     // a PartialFunction[Any, Unit]
     override def receive: Receive = {
       case "Hi" => context.sender() ! "Hello There!"
       case message: String => {
@@ -22,11 +24,22 @@ object ActorCapabilities extends App {
     }
   }
 
+  /*
+   Actors need infrastructure
+    */
+  // Actors are created via the actor system and not via the traditional new Actor keyword
   val system = ActorSystem("actorCapabilitiesDemo")
 
+  /*
+   Actor principles
+    */
+  // Actors are fully encapsulated, only their actorRef is used
+  // full parallelism
+  // non-blocking interaction via messages
   val simpleActor = system.actorOf(Props[SimpleActor], "simpleActor")
 
-//  simpleActor ! "hello, actor"
+  // ! is the "tell" method
+  simpleActor ! "hello, actor"
 
   // 1 - messages can be of any type
 //  simpleActor ! 42
@@ -52,6 +65,12 @@ object ActorCapabilities extends App {
   alice ! "Hi"
   // This message will be sent to deadLetters since there is no actor specified
   // deadLetters is the garbage pool of messages that are not sent to any actor.
+
+  /*
+   Actor references
+    */
+  // can be sent
+  // the self reference
 
   // 5 - forwarding messages
   // D -> A -> B
