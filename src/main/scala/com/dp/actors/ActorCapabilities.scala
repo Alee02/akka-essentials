@@ -42,14 +42,14 @@ object ActorCapabilities extends App {
   simpleActor ! "hello, actor"
 
   // 1 - messages can be of any type
-//  simpleActor ! 42
+  simpleActor ! 42
 
   case class SpecialMessage(contents: String)
-//  simpleActor ! SpecialMessage("special content")
+  simpleActor ! SpecialMessage("special content")
 
   // 2 - actors have information about their context and about themselves
   case class SendMessageToYourself(content: String)
-//  simpleActor ! SendMessageToYourself("some special content")
+  simpleActor ! SendMessageToYourself("some special content")
 
   // 4 - actors can REPLY to messages
   val alice = system.actorOf(Props[SimpleActor], "alice")
@@ -75,7 +75,28 @@ object ActorCapabilities extends App {
   // 5 - forwarding messages
   // D -> A -> B
   // forwarding = sending a message with the ORIGINAL sender
-
   case class WirelessPhoneMessage(content: String, ref: ActorRef)
   alice ! WirelessPhoneMessage("Hi", bob)
+
+  /**
+    * Exercises
+    *
+    * 1. a Counter actor
+    * Messages
+    *  - Increment
+    *  - Decrement
+    *  - Print
+    * 2. a Bank account as an actor
+    * receives
+    *  - Deposit an amount
+    *  - Withdraw and amount]
+    *  - Statement
+    * replies with
+    *
+    *  - Success/
+    *  - Failure
+    *  of each of these operations
+    *
+    * [hint] interact with some other kind of actor
+    */
 }
