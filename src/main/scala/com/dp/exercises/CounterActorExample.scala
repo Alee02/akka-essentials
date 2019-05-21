@@ -7,6 +7,7 @@ object CounterActorExample extends App {
 
 
   class CounterActor extends Actor {
+    import CounterActor._
     var counter: Int = 0
 
     override def receive: Receive = {
