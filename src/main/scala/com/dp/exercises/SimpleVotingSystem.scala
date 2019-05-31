@@ -23,15 +23,27 @@ object SimpleVotingSystem extends App {
 
   class VoteAggregator extends Actor {
     var stillWaiting: Set[ActorRef] = Set()
-    var currentStats: Map[String, Int] = Map()
+    var currentStats: Map[Candidate, Int] = Map()
     override def receive: Receive = {
       case AggregateVotes(citizens) =>
         stillWaiting = citizens
         citizens.foreach(cRef => cRef ! VoteStatusRequest)
+      case VoteStatusReply(None) =>
+        // a citizen hasn't voted yet
+        sender() ! VoteStatusRequest
+      case VoteStatusReply(Some(candidate)) =>
+        val newStillWaiting = stillWaiting - sender()
+        val currentVotesOfCandidate = currentStats.getOrElse(candidate, 0)
+        currentStats = currentStats + (candidate -> (currentVotesOfCandidate + 1))
+        if (newStillWaiting.isEmpty) {
+          println("[aggregator] poll stats:")
+            currentStats.foreach(println)
+        } else {
+          stillWaiting = newStillWaiting
+        }
+        // a citizen has voted
     }
   }
-
-
 
   val system = ActorSystem("votingActorSystem")
 
@@ -51,6 +63,10 @@ object SimpleVotingSystem extends App {
 
   /*
   Print the status of the votes.
+  (Candidate(Joanas),1)
+  (Candidate(Martin),1)
+  (Candidate(Roland),2)
+
    */
 
 
