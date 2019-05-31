@@ -78,5 +78,4 @@ object MultiThreadingRecap extends App{
     meaningOfLife <- future
     filteredMeaning <- filteredFuture
   } yield meaningOfLife + filteredMeaning
-
 }
