@@ -4,6 +4,7 @@ import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 
 object SimpleVotingSystem extends App {
 
+  case class Candidate(name: String) extends Person
   case class Vote(candidate: Candidate)
   case object VoteStatusRequest
   case class VoteStatusReply(candidate: Option[Candidate])
@@ -30,7 +31,6 @@ object SimpleVotingSystem extends App {
     }
   }
 
-  case class Candidate(name: String) extends Person
 
 
   val system = ActorSystem("votingActorSystem")
