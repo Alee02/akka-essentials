@@ -110,3 +110,9 @@ project/*
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+
+## metals
+.bloop/*
+.metals/*
+project/project*
+null/*

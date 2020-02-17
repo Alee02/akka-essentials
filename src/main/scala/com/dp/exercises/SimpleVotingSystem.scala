@@ -51,15 +51,23 @@ object SimpleVotingSystem extends App {
   val bob = system.actorOf(Props[Citizen])
   val charlie = system.actorOf(Props[Citizen])
   val daniel = system.actorOf(Props[Citizen])
+  val daniel2 = system.actorOf(Props[Citizen])
+  val daniel3 = system.actorOf(Props[Citizen])
+  val daniel4 = system.actorOf(Props[Citizen])
+  val daniel5 = system.actorOf(Props[Citizen])
 
   alice ! Vote(Candidate("Martin"))
   bob ! Vote(Candidate("Joanas"))
   charlie ! Vote(Candidate("Roland"))
   daniel ! Vote(Candidate("Roland"))
+  daniel2 ! Vote(Candidate("Roland"))
+  daniel3 ! Vote(Candidate("Roland"))
+  daniel4 ! Vote(Candidate("Roland"))
+  daniel5 ! Vote(Candidate("Roland"))
 
   val voteAggregator = system.actorOf(Props[VoteAggregator])
 
-  voteAggregator ! AggregateVotes(Set(alice, bob, charlie, daniel))
+  voteAggregator ! AggregateVotes(Set(alice, bob, charlie, daniel,daniel2,daniel3,daniel4,daniel5))
 
   /*
   Print the status of the votes.

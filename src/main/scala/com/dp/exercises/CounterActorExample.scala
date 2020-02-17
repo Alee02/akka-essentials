@@ -5,7 +5,7 @@ import com.dp.exercises.CounterActorExample.CounterActor.{Decrement, Increment, 
 
 object CounterActorExample extends App {
 
-
+  
   class CounterActor extends Actor {
     import CounterActor._
     var counter: Int = 0
